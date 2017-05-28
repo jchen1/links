@@ -18,6 +18,8 @@ fun main(args: Array<String>) {
     val linksPort = (System.getenv("LINKS_PORT") ?: "4567").toInt()
     val hostUrl = System.getenv("HOST_URL") ?: "http://localhost"
 
+    Class.forName("org.postgresql.Driver")
+
     val sql2o = Sql2o("jdbc:postgresql://localhost:5432/" + dbName, dbUsername, dbPassword)
     val linkDAO = LinkDAO(sql2o)
 
