@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
         if (url is String) {
             val id = linkDAO.insert(url)
             res.status(200)
-            return hostUrl + (if (hostUrl.indexOf("localhost") != -1) "" else ":" + linksPort) + "/" + id
+            return hostUrl + (if (hostUrl.indexOf("localhost") == -1) "" else ":" + linksPort) + "/" + id
         }
         else {
             res.status(400)
